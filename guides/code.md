@@ -45,7 +45,7 @@ We use the "google-style" convention for determining words. Here's a basic algor
 2. Capitalize each word (except the first for `camelCase`): `my_Profile_Id`
 3. Remove the underscores: `myProfileId`
 
-Notice that this clears up naming for many words such as `API` and `ID` which are commonly capitalized in
+Notice that this clears up naming for many words such as `Api` and `Id` which are commonly capitalized in
 other naming systems.
 
 ### 4.1 Database, Circuit JSON
