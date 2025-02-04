@@ -6,9 +6,16 @@ Aider can be an incredible tool for getting work done. Ask @seveibar for an API 
 following in your `.zshrc`
 
 ```bash
+# FOR OPENAI USERS
+export OPENAI_API_KEY="sk-openai-..."
+
+
+# FOR ANTHROPIC USERS (legacy- use o3-mini!)
 export ANTHROPIC_API_KEY="sk-ant-api03...."
 export AIDER_SONNET=1
-alias aid="aider --no-auto-commit --no-auto-lint"
+
+
+alias aid="aider --no-auto-commit --no-auto-lint --model o3-mini"
 ```
 
 Now when you're working on a repo, just do `aid` in your terminal.
