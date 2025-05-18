@@ -54,6 +54,10 @@ Some objects use snake casing because they're "inheriting the API convention" wh
 is common and OK. Just keep in mind you'll want to use `snake_case` for these objects, even as you pass them
 around.
 
+### 4.2 Enum Strings
+
+Enum strings should always be `"snake_case"` in every context. For example: `"circular_plated_hole"`
+
 
 ## 5. Variable Transparency (DO NOT RENAME UNLESS DISAMBIGUATING)
 
