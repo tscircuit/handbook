@@ -15,13 +15,17 @@ Example view of codex working:
 
 ## Creating Environments
 
+1. Always enable unrestricted internet access if there are no secrets and it's an open-source repo
+2. The setup action is usually just "bun install" (but don't forget it!)
+3. Create the repos you normally work in
+
 ## Crafting Prompts
 
-- ALWAYS START A PROMPT WITH YOUR INTENT
+- **ALWAYS START A PROMPT WITH YOUR INTENT**
   - "We want to show a downward ground symbol whenever a net label points downward to help makes schematics more readable"
-- NEVER PUT INCORRECT INSTRUCTIONS IN YOUR PROMPT
+- **NEVER PUT INCORRECT INSTRUCTIONS IN YOUR PROMPT**
   - It is better to be vague than incorrect
-- BE PRECISE, DO RESEARCH
+- **BE PRECISE, DO RESEARCH**
   - Go into the codebase and tell the AI what you think could be relevant, giving precise file names or paths
 
 ### Example Prompts that were Successful
