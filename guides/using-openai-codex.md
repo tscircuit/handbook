@@ -10,7 +10,9 @@ You can easily 2x or 3x the number of PRs you close if you leverage Codex. In ge
 
 Example view of codex working:
 
-![image](https://github.com/user-attachments/assets/403f5e55-06b2-4660-a0fa-4133c83a0cbb)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/403f5e55-06b2-4660-a0fa-4133c83a0cbb" style="height:320px" />
+</div>
 
 
 ## Creating Environments
