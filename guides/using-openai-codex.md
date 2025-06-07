@@ -33,6 +33,18 @@ Example view of codex working:
 ### Example Prompts that were Successful
 
 ```
+# circuit-to-svg
+there is a bug with when there is a schematic net label with anchor side top and symbol_name: "ground_down", for some reason the ground symbol renders sideways. This is also happening for anchor_side: bottom and "vcc_up". Please create tests that reproduce these and fix the issue.
+```
+
+```
+# tscircuit/core
+When we are rendering/creating a net label (sometimes we do this inside Trace.ts), if the symbol is downward facing connects to a ground net, replace the net label with a ground symbol (there are 4 ground symbols, ground_right, ground_up, ground_left, ground_down)
+
+To do this, introduce a new render phase called SchematicReplaceNetLabelsWithSymbols
+```
+
+```
 #tscircuit/cli
 when running "tsci init", prompt the user for the packageName of the package
 with a default of the current directory name, and in the package.json "name"
