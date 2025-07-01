@@ -15,7 +15,7 @@ export ANTHROPIC_API_KEY="sk-ant-api03...."
 export AIDER_SONNET=1
 
 
-alias aid="aider --no-auto-commit --no-auto-lint --model o3-mini"
+alias aid="aider --no-auto-commit --no-auto-lint --model o3 --architect"
 ```
 
 Now when you're working on a repo, just do `aid` in your terminal.
