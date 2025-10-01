@@ -20,6 +20,8 @@ people who love to build to do their best work.
 ### Things to Avoid
 
 - Asking someone to create an issue for you (poor self-management)
+- Asking for manual edits to sponsorship (propose prompt changes for ranking contributions, don't complain)
+- Asking for bounties (don't turn maintainers into accountants)
 
 
 ## The Company
