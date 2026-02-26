@@ -86,3 +86,21 @@ keep them the same unless you are disambiguating
 // BAD: DO NOT DO THIS
 const userProfile = ctx.user_profile
 ```
+
+## 6. Use Conventional Clear Naming
+
+Names should be clear and conventional.
+
+### Common Naming Mistakes
+
+- `rotation` (if a number) must have a unit and direction
+  - BAD: `rotation`
+  - GOOD: `ccwRotationDegrees`
+- Matrices that represent a transform should always specify the from/to coordinate space
+  - BAD: `mat`, `transform`
+  - GOOD: `realToPxTransform`, `realToSvgMat`
+
+
+## 7. Use `transformation-matrix` when computing 2d transformations. Do Not Write Math With Scaling!
+
+Math with scaling is unmaintainable and easy to mess up.
