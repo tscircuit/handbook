@@ -24,3 +24,11 @@ export { default as sample002 } from "./samples/sample002.json"
 export { default as sample003 } from "./samples/sample003.json"
 // ...
 ```
+
+## Creating Simple Route JSON from Circuit JSON
+
+You can create the standard dataset Simple Route Json via this import:
+
+```tsx
+import { getSimpleRouteJsonFromCircuitJson } from "@tscircuit/core"
+```
