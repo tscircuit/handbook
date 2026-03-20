@@ -9,6 +9,7 @@
 
 - Z: Zero-Obstacle Datasets
 - SRJ: Simple Route JSON Dataset
+- HG: HyperGraph Dataset
 
 ## Dataset Library Structure
 
