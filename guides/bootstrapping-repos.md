@@ -51,14 +51,21 @@ and create a `page.tsx` file that constructs your solver like so:
 import { GenericSolverDebugger } from "@tscircuit/solver-utils/react"
 import { MySolver } from "lib/my-solver"
 
+export default <GenericSolverDebugger createSolver={() => new MySolver()} />
+```
 
-
+```tsx
 // mysolver.tsx
-
 import { BaseSolver } from "@tscircuit/solver-utils"
 import type { GraphicsObject } from "graphics-debug"
 
 export class MySolver extends BaseSolver {
+  constructor(params: {}) {}
+
+  _step() {
+    this.solved = true
+  }
+
   visualize(): GraphicsObject {
     // Add stuff here
     return {}
