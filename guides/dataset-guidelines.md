@@ -14,9 +14,11 @@
 
 ## Dataset Library Structure
 
-- `index.ts` or `index.js` file with package.json pointing to it
+- `index.js` file with package.json pointing to it
+- `index.d.ts` file with lightweight types
 - NO TRANSPILATION! (won't work with github installation if you transpile)
 - DO NOT PUBLISH TO NPM (install datasets using github URL: `bun add https://github.com/tscircuit/dataset-srj05`)
+- DO NOT CREATE AN `index.ts` FILE!!! This explodes the types.
 
 ```tsx
 // index.ts
