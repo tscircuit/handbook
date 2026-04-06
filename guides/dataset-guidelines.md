@@ -11,6 +11,7 @@
 - SRJ: Simple Route JSON Dataset
 - HG: HyperGraph Dataset
 - HD: HighDensity Node Dataset (solved)
+- TS: tscircuit code dataset
 
 ## Dataset Library Structure
 
