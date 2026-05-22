@@ -12,6 +12,8 @@
 
 ## 2.2 AWS Top-Level Key Convention
 
+The only thing allowed in a top level key is an object e.g. `{ order: { order_id, ... } }`
+
 ## 2.3 Always accept POST, accept GET where possible
 
 ## 2.4 Common Verbs
