@@ -13,13 +13,20 @@ to AI.
 - `bun add -D @biomejs/biome`
 - Add `.cursor` and `bun.lock` to the `.gitignore`
 
-PREFERRED: Use github-style installation
+### PREFERRED: Use github-vanilla-style installation
 
 - Edit the package.json to have the `"module": "lib/index.ts"`
 - Set the `package.json` `"files": ["lib"]`
 - In your `tsconfig.json`, modify the compiler option `"paths": { "lib/*": ["./lib/*"], "tests/*": ["./tests/*"] }`
 
-LEGACY: Use tsup and npm
+### Publish using GitHub Packages (prefer for internal packages that require a build step)
+
+> Unless you're building WASM or have build artifacts like binaries, you don't need to have a built-step
+
+- Add `"publishConfig": { "registry": "https://npm.pkg.github.com" }` to package.json
+- In `.github/workflows`, run `plop` and select `bun-pver-release-ghp.yml`
+
+### LEGACY: Use tsup and npm
 
 - `plop` `bun-pver-release.yml` into `.github/workflows`
 - `bun add -D tsup`
