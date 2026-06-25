@@ -6,23 +6,27 @@ for general style and [`api-design.md`](./api-design.md) for API conventions.
 
 ## 1. Avoid polluting entrypoint files
 
-When there's a high-level file — the "main function export", a CLI entrypoint, a
-top-level `index.ts` — don't add specific logic to it. Keep it small and full of
-high-level function calls so it reads like a table of contents.
+A high-level file — the CLI entrypoint, the main export, a top-level `index.ts` —
+should contain high-level calls, not the implementations. Keep the logic in sibling
+modules and import it, so the entrypoint reads like a summary.
 
 ```ts
-// BAD: entrypoint stuffed with logic
+// BAD: index.ts defines every helper itself
+function getCircuitFiles(dir: string) { /* ...20 lines... */ }
+function renderFilesToCircuitJson(files: string[]) { /* ...40 lines... */ }
+function writeBuildOutput(json: CircuitJson, opts: BuildOptions) { /* ...30 lines... */ }
+
 export async function build(opts: BuildOptions) {
-  const files = await readdir(opts.dir)
-  const circuitJson = []
-  for (const file of files) {
-    if (!file.endsWith(".tsx")) continue
-    const source = await readFile(file, "utf-8")
-    // ...50 more lines of parsing, transforming, writing...
-  }
+  const files = getCircuitFiles(opts.dir)
+  const circuitJson = renderFilesToCircuitJson(files)
+  writeBuildOutput(circuitJson, opts)
 }
 
-// GOOD: entrypoint reads like a summary
+// GOOD: index.ts imports and orchestrates
+import { getCircuitFiles } from "./get-circuit-files"
+import { renderFilesToCircuitJson } from "./render-files-to-circuit-json"
+import { writeBuildOutput } from "./write-build-output"
+
 export async function build(opts: BuildOptions) {
   const files = await getCircuitFiles(opts.dir)
   const circuitJson = await renderFilesToCircuitJson(files)
@@ -30,8 +34,8 @@ export async function build(opts: BuildOptions) {
 }
 ```
 
-AI assistants tend to inline everything into one function. Push the detail down
-into named, separately-testable functions.
+AI assistants tend to stuff entrypoint files, defining every helper inline instead
+of splitting them into their own modules.
 
 ## 2. Avoid Named Closures
 
