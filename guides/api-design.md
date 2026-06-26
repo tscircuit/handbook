@@ -63,8 +63,7 @@ as parameters instead (see 2.5).
 
 The only thing allowed in a top-level key is an object, e.g.
 `{ order: { order_id, ... } }`. Name the key after the resource (singular for one
-object, plural for a list), like AWS APIs. This leaves room to add sibling keys
-later without breaking clients.
+object, plural for a list), like AWS APIs.
 
 ```jsonc
 // GOOD: object under a named top-level key
@@ -80,7 +79,7 @@ later without breaking clients.
 
 Every route must accept `POST` (body params). Read-only routes should *also* accept
 `GET` (query params) so they're easy to hit from a browser, `curl`, or a link.
-Routes that mutate state are `POST`-only.
+Routes that mutate state MUST have `POST`, and can also have REST convention `PUT` etc.
 
 ```
 # GOOD: read-only route reachable both ways
@@ -181,17 +180,25 @@ a clear error (2.6) the moment you know the request can't succeed — don't get
 halfway through a mutation and then bail.
 
 ```ts
-// GOOD: validate first, fail before side effects
+// GOOD: bail early with throws, keep the happy path flat
 async function handler(req) {
   const pkg = await getPackage(req.package_id)
-  if (!pkg) return error("package_not_found")
-  if (!req.user.can_edit) return error("forbidden")
+  if (!pkg) throw new Error("Package not found")
+  if (!req.user.can_edit) throw new Error("Forbidden")
   await mutate(pkg)
 }
 
-// BAD: mutate, then discover the request was invalid
+// BAD: nesting the happy path instead of bailing early
 async function handler(req) {
-  await mutate(req.package_id)        // already wrote
-  if (!req.user.can_edit) return error("forbidden") // too late
+  const pkg = await getPackage(req.package_id)
+  if (pkg) {
+    if (req.user.can_edit) {
+      await mutate(pkg)
+    } else {
+      throw new Error("Forbidden")
+    }
+  } else {
+    throw new Error("Package not found")
+  }
 }
 ```

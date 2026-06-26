@@ -4,9 +4,6 @@ tscircuit code has a consistent pragmatic style with an emphasis on readability.
 
 Where possible, we always prefer linting rules for enforcement of style.
 
-See also [`ai-code-guidelines.md`](./ai-code-guidelines.md) for rules specific to
-AI-generated code, and [`api-design.md`](./api-design.md) for API conventions.
-
 ## 1. Two-Parameter Rule
 
 We never use more than two parameters in a function, whenever there are more than two parameters we either...

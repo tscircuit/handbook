@@ -77,16 +77,6 @@ const pkg = JSON.parse(body) as any
 ship(pkg.pakage_id) // typo silently compiles, fails at runtime
 
 // GOOD: type the value, let the compiler catch mistakes
-const pkg: Package = JSON.parse(body)
+const pkg = JSON.parse(body) as Package
 ship(pkg.pakage_id) // compile error: did you mean package_id?
 ```
-
-If you genuinely need an escape hatch:
-
-- Prefer a type guard (`if (isPort(x)) { ... }`) over a cast.
-- Prefer a precise cast (`as Port`) over `as any`.
-- If you must write `as unknown as X`, leave a comment explaining why the types
-  can't line up, so the next reader doesn't assume it's an accident.
-
-The same applies to `// @ts-ignore` and `// @ts-expect-error` — fix the type, or
-explain in a comment why you can't.
