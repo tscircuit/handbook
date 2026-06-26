@@ -11,17 +11,6 @@ should contain high-level calls, not the implementations. Keep the logic in sibl
 modules and import it, so the entrypoint reads like a summary.
 
 ```ts
-// BAD: index.ts defines every helper itself
-function getCircuitFiles(dir: string) { /* ...20 lines... */ }
-function renderFilesToCircuitJson(files: string[]) { /* ...40 lines... */ }
-function writeBuildOutput(json: CircuitJson, opts: BuildOptions) { /* ...30 lines... */ }
-
-export async function build(opts: BuildOptions) {
-  const files = getCircuitFiles(opts.dir)
-  const circuitJson = renderFilesToCircuitJson(files)
-  writeBuildOutput(circuitJson, opts)
-}
-
 // GOOD: index.ts imports and orchestrates
 import { getCircuitFiles } from "./get-circuit-files"
 import { renderFilesToCircuitJson } from "./render-files-to-circuit-json"
@@ -31,6 +20,17 @@ export async function build(opts: BuildOptions) {
   const files = await getCircuitFiles(opts.dir)
   const circuitJson = await renderFilesToCircuitJson(files)
   await writeBuildOutput(circuitJson, opts)
+}
+
+// BAD: index.ts defines every helper itself
+function getCircuitFiles(dir: string) { /* ...20 lines... */ }
+function renderFilesToCircuitJson(files: string[]) { /* ...40 lines... */ }
+function writeBuildOutput(json: CircuitJson, opts: BuildOptions) { /* ...30 lines... */ }
+
+export async function build(opts: BuildOptions) {
+  const files = getCircuitFiles(opts.dir)
+  const circuitJson = renderFilesToCircuitJson(files)
+  writeBuildOutput(circuitJson, opts)
 }
 ```
 
@@ -44,20 +44,20 @@ rarely appropriate when a higher-scoped function is possible — a hoisted funct
 easier to test, reuse, and read.
 
 ```ts
-// BAD: named closure trapped inside the function
-function processNets(nets: Net[]) {
-  function normalizeNet(net: Net) {
-    // ...
-  }
-  return nets.map(normalizeNet)
-}
-
 // GOOD: hoist it to module scope
 function normalizeNet(net: Net) {
   // ...
 }
 
 function processNets(nets: Net[]) {
+  return nets.map(normalizeNet)
+}
+
+// BAD: named closure trapped inside the function
+function processNets(nets: Net[]) {
+  function normalizeNet(net: Net) {
+    // ...
+  }
   return nets.map(normalizeNet)
 }
 ```
@@ -72,11 +72,11 @@ larger function body.
 assistants reach for them to silence a type error instead of fixing the type.
 
 ```ts
-// BAD: casts away the error, loses all type safety
-const pkg = JSON.parse(body) as any
-ship(pkg.pakage_id) // typo silently compiles, fails at runtime
-
 // GOOD: type the value, let the compiler catch mistakes
 const pkg = JSON.parse(body) as Package
 ship(pkg.pakage_id) // compile error: did you mean package_id?
+
+// BAD: casts away the error, loses all type safety
+const pkg = JSON.parse(body) as any
+ship(pkg.pakage_id) // typo silently compiles, fails at runtime
 ```

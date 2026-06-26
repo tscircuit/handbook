@@ -29,11 +29,11 @@ Prefer flat objects. Deep nesting is hard to type, hard to migrate, and hard to
 query. Add a level of nesting only when the grouping is real and stable.
 
 ```ts
-// BAD: gratuitous nesting
-{ package: { meta: { naming: { name: "foo" } } } }
-
 // GOOD: flat
 { package_name: "foo" }
+
+// BAD: gratuitous nesting
+{ package: { meta: { naming: { name: "foo" } } } }
 ```
 
 # 2. HTTP API Design
@@ -118,12 +118,12 @@ Never put an id in the path. Pass it as a parameter — query param for `GET`, b
 field for `POST`. This keeps routes static and verb-based (2.1).
 
 ```
-# BAD: id in the path
-GET  /package/pkg_123
-
 # GOOD: id as a parameter
 GET  /package/get?package_id=pkg_123
 POST /package/get   { "package_id": "pkg_123" }
+
+# BAD: id in the path
+GET  /package/pkg_123
 ```
 
 ## 2.6 Common Error Object
