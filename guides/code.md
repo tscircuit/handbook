@@ -11,6 +11,16 @@ We never use more than two parameters in a function, whenever there are more tha
 1. Convert to "named parameters" and take a single parameter as an object
 2. Switch to the context passing pattern.
 
+```ts
+// GOOD: single named-parameter object
+function renderSymbol(params: { symbolName: string; x: number; y: number; ccwRotationDegrees: number }) {}
+renderSymbol({ symbolName: "ground_down", x: 5, y: 10, ccwRotationDegrees: 90 })
+
+// BAD: positional params, call site is unreadable
+function renderSymbol(symbolName: string, x: number, y: number, rotation: number) {}
+renderSymbol("ground_down", 5, 10, 90)
+```
+
 - [core#422](https://github.com/tscircuit/core/pull/422#discussion_r1885804180)
 
 ## 2. Context-Passing Pattern
@@ -20,11 +30,22 @@ The context-passing pattern means using a two-parameter function where...
 - the second parameter is a common named object ("the context")
 
 ```ts
-export function renderSymbol(params: { symbolName: string, shape: any }, ctx: AppContext) {
+// GOOD: function-specific params first, shared context second
+export function renderSymbol(params: { symbolName: string; shape: any }, ctx: AppContext) {
+  // ...
+}
+
+// BAD: context fields spread into params — no reusable context, grows unbounded
+export function renderSymbol(params: {
+  symbolName: string
+  shape: any
+  db: Db
+  logger: Logger
+  config: Config
+}) {
   // ...
 }
 ```
-
 
 When using the context-passing pattern, the most important thing is to make sure you're not inventing too many contexts. Generally
 there will be one or two obvious contexts for an app. It's common to create a named interface like `AuthContext` or `ComponentContext`
@@ -35,7 +56,19 @@ there will be one or two obvious contexts for an app. It's common to create a na
 
 There are some words that are so bad, that a more domain-specific word is always better.
 
-- `data`, `info`, `value`, `param` - Just "say the thing", e.g. `cartData` -> `currentOrderDetails`
+- `data`, `info`, `value`, `param` - Just "say the thing"
+
+```ts
+// GOOD: say the thing
+const currentOrderDetails = await getCart()
+const userProfile = res.body
+function normalizeNet(net) {}
+
+// BAD: vague filler words
+const cartData = await getCart()
+const userInfo = res.body
+function process(value) {}
+```
 
 ## 4. Casing
 
@@ -47,6 +80,18 @@ We use the "google-style" convention for determining words. Here's a basic algor
 
 Notice that this clears up naming for many words such as `Api` and `Id` which are commonly capitalized in
 other naming systems.
+
+```ts
+// GOOD: google-style algorithm applied
+const myProfileId = ...
+const fetchApiResponse = ...
+class HttpClient {}
+
+// BAD: ad-hoc capitalization
+const myProfileID = ...
+const fetchAPIResponse = ...
+class HTTPClient {}
+```
 
 ### 4.1 Database, Circuit JSON
 
@@ -94,11 +139,11 @@ Names should be clear and conventional.
 ### Common Naming Mistakes
 
 - `rotation` (if a number) must have a unit and direction
-  - BAD: `rotation`
   - GOOD: `ccwRotationDegrees`
+  - BAD: `rotation`
 - Matrices that represent a transform should always specify the from/to coordinate space
-  - BAD: `mat`, `transform`
   - GOOD: `realToPxTransform`, `realToSvgMat`
+  - BAD: `mat`, `transform`
 
 
 ## 7. Use `transformation-matrix` when computing 2d transformations. Do Not Write Math With Scaling!
