@@ -2,8 +2,6 @@
 
 tscircuit code has a consistent pragmatic style with an emphasis on readability.
 
-Where possible, we always prefer linting rules for enforcement of style.
-
 ## 1. Two-Parameter Rule
 
 We never use more than two parameters in a function, whenever there are more than two parameters we either...
