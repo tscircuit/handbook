@@ -150,11 +150,7 @@ Names should be clear and conventional.
 
 Math with scaling is unmaintainable and easy to mess up.
 
-# AI Code Guidelines
-
-Guidelines for code written by or with AI assistants. These keep AI-generated code
-readable and consistent with the rest of the codebase. See also [`code.md`](./code.md)
-for general style and [`api-design.md`](./api-design.md) for API conventions.
+# AI-Generated Code Guidelines
 
 ## 1. Avoid polluting entrypoint files
 
