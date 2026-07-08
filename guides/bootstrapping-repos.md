@@ -25,7 +25,7 @@ to AI.
 
 - Add `"publishConfig": { "registry": "https://npm.pkg.github.com" }` to package.json
 - In `.github/workflows`, run `plop` and select `bun-pver-release-ghp.yml`
-- To install your package, do `bun add -D https://jscdn.tscircuit.com/@tscircuit/my-package`
+- To install your package, do `bun add -D https://jscdn.tscircuit.com/@tscircuit/my-package/0.0.1`
 
 ### LEGACY: Use tsup and npm
 
