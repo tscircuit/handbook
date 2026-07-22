@@ -68,7 +68,12 @@ const userInfo = res.body
 function process(value) {}
 ```
 
-## 4. Casing
+## 4. Use Named Map Key Types
+
+`Map<string, ...>` is banned. Always use a named or branded key type, such as
+`Map<SchematicPortId, ...>`, so the key's domain meaning is clear to readers.
+
+## 5. Casing
 
 We use the "google-style" convention for determining words. Here's a basic algorithm you can follow:
 
@@ -91,18 +96,18 @@ const fetchAPIResponse = ...
 class HTTPClient {}
 ```
 
-### 4.1 Database, Circuit JSON
+### 5.1 Database, Circuit JSON
 
 Some objects use snake casing because they're "inheriting the API convention" which specifies underscores. This
 is common and OK. Just keep in mind you'll want to use `snake_case` for these objects, even as you pass them
 around.
 
-### 4.2 Enum Strings
+### 5.2 Enum Strings
 
 Enum strings should always be `"snake_case"` in every context. For example: `"circular_plated_hole"`
 
 
-## 5. Variable Transparency (DO NOT RENAME UNLESS DISAMBIGUATING)
+## 6. Variable Transparency (DO NOT RENAME UNLESS DISAMBIGUATING)
 
 Variable transparency means a variable has the same name as it traverses throughout the codebase.
 
@@ -120,7 +125,7 @@ const currentUserProfile = userProfile
 const friendUserProfile = await getFriend(userProfile)
 ```
 
-### 5.1 Never Rename a Transparent Variable
+### 6.1 Never Rename a Transparent Variable
 
 This is a common mistake when working between `snake_case` and `camelCase` code. Do not rename variables,
 keep them the same unless you are disambiguating
@@ -130,7 +135,7 @@ keep them the same unless you are disambiguating
 const userProfile = ctx.user_profile
 ```
 
-## 6. Use Conventional Clear Naming
+## 7. Use Conventional Clear Naming
 
 Names should be clear and conventional.
 
@@ -144,7 +149,7 @@ Names should be clear and conventional.
   - BAD: `mat`, `transform`
 
 
-## 7. Use `transformation-matrix` when computing 2d transformations. Do Not Write Math With Scaling!
+## 8. Use `transformation-matrix` when computing 2d transformations. Do Not Write Math With Scaling!
 
 Math with scaling is unmaintainable and easy to mess up.
 
