@@ -148,6 +148,11 @@ Names should be clear and conventional.
 
 Math with scaling is unmaintainable and easy to mess up.
 
+## 8. Use Named Map Key Types
+
+`Map<string, ...>` is banned. Always use a named or branded key type, such as
+`Map<SchematicPortId, ...>`, so the key's domain meaning is clear to readers.
+
 # AI-Generated Code Guidelines
 
 ## 1. Avoid polluting entrypoint files
