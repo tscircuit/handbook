@@ -9,3 +9,5 @@ basic processes at a company. This repo is tscircuit's handbook!
 - [Setting Up Aider for AI Assistance](./guides/setting-up-aider.md)
 - [Using Yalc for Local Development](./guides/using-yalc.md)
 - [Preparing for Design Review](./guides/preparing-for-design-review.md)
+- [Standard Process for Graphics Debugging](./guides/graphics-debugging.md)
+
