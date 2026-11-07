@@ -1,0 +1,49 @@
+# Receiving Contributor Sponsorships on Open Collective
+
+If you're moving from GitHub Sponsors to Open Collective for tscircuit contributor
+payouts, follow these steps. You need an Open Collective profile and a bank account
+you already own; you do not need to open a new bank account.
+
+## 1. Create your profile
+
+Create a personal account at [Open Collective](https://opencollective.com/), or sign
+in to your existing account. Share your **GitHub username and Open Collective
+profile link** with the tscircuit team so we can match your contributions to the
+correct recipient. Your usernames can differ.
+
+## 2. Complete your sponsorship expense
+
+When invited to complete an expense from
+[tscircuit Contributors](https://opencollective.com/tscircuit-contributors), sign in
+to Open Collective and enter your legal name, address, and any additional identity
+or tax information requested by the fiscal host. Check the sponsorship amount
+before submitting.
+
+## 3. Add your bank payout method
+
+In the expense's payout method section, choose **Add new bank account**.
+
+For a bank account **outside the US**, follow the fiscal host's instructions:
+
+1. Select **USD** as the payout currency. The host cannot process these payouts in
+   INR.
+2. Select **Outside of the US** when asked where the recipient bank account is
+   located. This opens the international bank details form.
+3. Enter the requested bank details, including your bank's **SWIFT/BIC code**.
+   Confirm the correct details with your bank if you're unsure.
+
+The host has advised that selecting USD enables the international transfer while
+allowing you to receive the payout in your bank account's currency. If your bank
+is in the US, select its actual location and complete the corresponding form.
+
+## 4. Submit for approval
+
+Submit the completed expense. If the host marks it **incomplete**, read the expense
+comments, correct the requested details, and **resubmit for approval**. Payment
+follows the fiscal host's review and processing; creating a profile or expense does
+not itself trigger payment.
+
+**Keep financial information private.** Share only your GitHub username and public
+Open Collective profile link with the team. Enter bank, identity, and tax details
+only in Open Collective's private forms, never in Discord or public expense
+comments.
