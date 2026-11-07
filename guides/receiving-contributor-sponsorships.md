@@ -11,15 +11,7 @@ in to your existing account. Share your **GitHub username and Open Collective
 profile link** with the tscircuit team so we can match your contributions to the
 correct recipient. Your usernames can differ.
 
-## 2. Complete your sponsorship expense
-
-When invited to complete an expense from
-[tscircuit Contributors](https://opencollective.com/tscircuit-contributors), sign in
-to Open Collective and enter your legal name, address, and any additional identity
-or tax information requested by the fiscal host. Check the sponsorship amount
-before submitting.
-
-## 3. Add your bank payout method
+## 2. Add your bank payout method
 
 In the expense's payout method section, choose **Add new bank account**.
 
@@ -36,6 +28,14 @@ For a bank account **outside the US**, follow the fiscal host's instructions:
 The host processes the international transfer in USD; the payment is converted to
 your bank account's currency when you receive it. If your bank is in the US, select
 its actual location and complete the corresponding form.
+
+## 3. Complete your sponsorship expense
+
+When invited to complete an expense from
+[tscircuit Contributors](https://opencollective.com/tscircuit-contributors), sign in
+to Open Collective and enter your legal name, address, and any additional identity
+or tax information requested by the fiscal host. Check the sponsorship amount
+before submitting.
 
 ## 4. Submit for approval
 
