@@ -1,8 +1,8 @@
 # Receiving Contributor Sponsorships on Open Collective
 
 If you're moving from GitHub Sponsors to Open Collective for tscircuit contributor
-payouts, follow these steps. You need an Open Collective profile and a bank account
-you already own; you do not need to open a new bank account.
+payouts, follow these steps. You need an Open Collective profile and must set up
+your payout method.
 
 ## 1. Create your profile
 
@@ -26,15 +26,16 @@ In the expense's payout method section, choose **Add new bank account**.
 For a bank account **outside the US**, follow the fiscal host's instructions:
 
 1. Select **USD** as the payout currency. The host cannot process these payouts in
-   INR.
+   other currencies.
 2. Select **Outside of the US** when asked where the recipient bank account is
    located. This opens the international bank details form.
 3. Enter the requested bank details, including your bank's **SWIFT/BIC code**.
    Confirm the correct details with your bank if you're unsure.
 
-The host has advised that selecting USD enables the international transfer while
-allowing you to receive the payout in your bank account's currency. If your bank
-is in the US, select its actual location and complete the corresponding form.
+**Select USD in the payout form even if your bank account uses another currency.**
+The host processes the international transfer in USD; the payment is converted to
+your bank account's currency when you receive it. If your bank is in the US, select
+its actual location and complete the corresponding form.
 
 ## 4. Submit for approval
 
